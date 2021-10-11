@@ -1,0 +1,13 @@
+<%= form_with(method: "get") do %>
+  <%= label_tag :flickr_profile_id, "Profile ID:" %>
+  <%= text_field_tag :flickr_profile_id %>
+  <%= submit_tag "See pictures" %>
+<% end %>
+
+<% if @photos %>
+  <ul>
+    <% @photos.each do |photo| %>
+      <li><%= image_tag("https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_c.jpg") %></li>
+    <% end %>
+  </ul>
+<% end %>
